@@ -591,6 +591,8 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="login.php">Sign In</a></li>
+                <li><a href="register.php">Register</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -665,6 +667,9 @@
             </p>
         </div>
     </section>
+
+    <!-- Ask Repairing price Section -->
+     <a href="repair.php" class="ask-price-btn"><h2>Ask for Repairing Price</h2></a>
 
     <!-- Image Slider Section -->
     <section class="slider">

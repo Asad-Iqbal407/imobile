@@ -66,6 +66,34 @@ $tables = [
         id INT AUTO_INCREMENT PRIMARY KEY,
         email VARCHAR(255) UNIQUE NOT NULL,
         subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )",
+    "CREATE TABLE IF NOT EXISTS users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        username VARCHAR(50) UNIQUE NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )",
+    "CREATE TABLE IF NOT EXISTS repair_requests (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT,
+        name VARCHAR(255) NOT NULL,
+        phone VARCHAR(20) NOT NULL,
+        address TEXT NOT NULL,
+        postal_code VARCHAR(20) NOT NULL,
+        city VARCHAR(100) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        cell_brand VARCHAR(100) NOT NULL,
+        cell_model VARCHAR(100) NOT NULL,
+        collection_service ENUM('yes', 'no') NOT NULL,
+        picture1 VARCHAR(255),
+        picture2 VARCHAR(255),
+        picture3 VARCHAR(255),
+        description TEXT NOT NULL,
+        status ENUM('pending', 'approved', 'rejected', 'completed') DEFAULT 'pending',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     )"
 ];
 
